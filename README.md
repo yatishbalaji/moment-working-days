@@ -1,17 +1,17 @@
-# JSON to Table (HTML)
+# Distributed Working days calculator
 
-### Install
+## Install
 
 `npm install moment-working-days`
 
-### Include
+## Include
 
 `const WorkingDays = require('moment-working-days')`
 
-### Major Applications
+## Major Applications
   * TAT (Turn Around Time Calculator)
 
-### Configuration
+## Configuration
 ```
 const WorkingDays = require('moment-working-days')
 
@@ -32,9 +32,9 @@ const momentWorkingdays = new WorkingDays({
 // customHolidays: Defines custom holidays for bussiness (eg: public holidays). Pass an array of dates in configured dateFormat
 ```
 
-### API
+## API
 
-* `.getWorkingDays(<array_of_dates>) => number`
+### .getWorkingDays(<array_of_dates>) => number
   * calculates count of working days, considering custom holidays and weekoffs.
   * supports distributed date ranges, i.e supports multiple date ranges to be considered for calculation
   * Consider today
@@ -43,8 +43,37 @@ const momentWorkingdays = new WorkingDays({
   * Support moment date formats
   * If you pass only one date in array, it will calculate till today
   * If you pass range of dates, it will calculate after making pair of even and odd indices
+  * Supports future dates
 
+##### Example 1
+```
+// Input
+[
+  "29-11-2019",
+  "03-12-2019",
+  "07-12-2019",
+  "12-12-2019"
+]
 
+// Output
+30-11-2019 is a Sat
+01-12-2019 is a Sun
+02-12-2019 is a Custom Holiday
+07-12-2019 is a Sat
+08-12-2019 is a Sun
+Working Days: 6 day(s)
+
+// Returns
+6
+
+// Explanation
+- First it creates pairs of odd and even indexed dates.
+- Then, it calculates days within a pair (eg: pair1: 29-11 and 03-12. pair2: 07-12 and 12-12).
+- Then, it calculates overall working days.
+- Hence giving support to distributed date ranges
+```
+
+##### Example 2
 ```
 // Input
 [
@@ -65,9 +94,13 @@ Working Days: 3 day(s)
 3
 
 // Explanation
-`First it calculates days between 29-11 and 03-12. Then it calculates between 07-12 and today (since length is uneven), hence giving support to distributed date ranges`
+- If number of elements in input array is odd, then it will pair the last date with today
+- Eg: pair1: 29-11 and 03-12. pair2: 07-12 and 09-12 (Today's date)
+- Hence giving support to distributed date ranges
 ```
 
+
+##### Example 3
 ```
 // Input
 [
@@ -86,9 +119,10 @@ Working Days: 6 day(s)
 6
 ```
 
-* `.isWorkingday(<date>) => boolean`
+### `.isWorkingday(<date>) => boolean`
   * returns if it is a working day, considering custom holidays and weekoffs
 
+##### Example 1
 ```
 // Input
 "02-12-2019"
@@ -100,6 +134,7 @@ Working Days: 6 day(s)
 false
 ```
 
+##### Example 2
 ```
 // Input
 "01-12-2019"
@@ -111,6 +146,7 @@ false
 false
 ```
 
+##### Example 3
 ```
 // Input
 "06-12-2019"
