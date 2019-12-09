@@ -18,6 +18,8 @@ class WorkingDays {
   }
 
   isWorkingday(date) {
+    date = moment.isMoment(date) ? date : moment(date, this.dateFormat);
+
     if (
         this.weekOffDays.includes(+date.format('d'))
     ) {
@@ -86,6 +88,56 @@ class WorkingDays {
 
         return 0;
     }
+  }
+
+  addWorkingDays(date, noOfDays = 1) {
+      try {
+        let data = moment(date, this.dateFormat);
+
+        while (noOfDays > 0) {
+            const nextDate = data.add(1, 'days');
+            data = nextDate;
+
+            if (this.isWorkingday(data)) {
+                noOfDays = noOfDays - 1;                
+            }
+        }
+
+        return data.format(this.dateFormat);
+      } catch (err) {
+          if (this.verbose) console.error(err);
+
+          return moment().format(this.dateFormat);
+      }
+  }
+
+  nextWorkingDay(date) {
+      return this.addWorkingDays(date, 1)
+  }
+
+  subtractWorkingDays(date, noOfDays = 1) {
+      try {
+        let data = moment(date, this.dateFormat);
+
+        while (noOfDays > 0) {
+            const nextDate = data.subtract(1, 'days');
+            data = nextDate;
+
+            if (this.isWorkingday(nextDate)) {
+                noOfDays = noOfDays - 1;                
+            }
+        }
+
+        return data.format(this.dateFormat);
+      } catch (err) {
+          if (this.verbose) console.error(err);
+
+          return moment().format(this.dateFormat);
+      }
+  }
+
+  prevWorkingDay(date) {
+      return this.subtractWorkingDays(date, 1)
   }
 }
 

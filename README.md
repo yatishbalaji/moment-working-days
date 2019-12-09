@@ -157,3 +157,68 @@ false
 > Returns
 true
 ```
+
+### `.addWorkingDays(<date>, noOfDays) => Date string`
+  * returns date, after adding noOfDays of working days
+
+#### Example
+
+```
+> momentWorkingdays.addWorkingDays("06-12-2019", 2) // Friday
+
+> Output
+07-12-2019 is a Sat
+08-12-2019 is a Sun
+
+> Returns
+10-12-2019 // Tuesday
+```
+
+### `.nextWorkingDay(<date>) => Date string`
+  * returns next working date
+
+#### Example
+
+```
+> momentWorkingdays.nextWorkingDay("06-12-2019") // Friday
+
+> Output
+07-12-2019 is a Sat
+08-12-2019 is a Sun
+
+> Returns
+09-12-2019 // Monday
+
+```
+
+### `.subtractWorkingDays(<date>, noOfDays) => Date string`
+  * returns date, after subtracting noOfDays of working days
+
+#### Example
+
+```
+> momentWorkingdays.subtractWorkingDays("09-12-2019", 2) // Monday
+
+> Output
+08-12-2019 is a Sun
+07-12-2019 is a Sat
+
+> Returns
+05-12-2019 // Thursday
+```
+
+### `.prevWorkingDay(<date>) => Date string`
+  * returns previous working day
+
+#### Example
+
+```
+> momentWorkingdays.prevWorkingDay("09-12-2019") // Monday
+
+> Output
+08-12-2019 is a Sun
+07-12-2019 is a Sat
+
+> Returns
+06-12-2019  // Friday
+```

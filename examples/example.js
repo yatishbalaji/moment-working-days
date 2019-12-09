@@ -1,0 +1,21 @@
+const fs = require('fs');
+const path = require('path');
+
+const WorkingDays = require('../src/index');
+
+const array = JSON.parse(fs.readFileSync(path.resolve(__dirname, './example.json')), 'utf-8');
+
+const momentWorkingdays = new WorkingDays({
+  includeToday: true, // optional. Default true
+  verbose: true, // optional. Default false
+  weekOffDays: [0, 6], // optional. Default [0, 6]
+  dateFormat: 'DD-MM-YYYY', // optional. Default 'YYYY-MM-DD'
+  customHolidays: ['02-12-2019'], // optional
+})
+
+console.log('Working Days:', momentWorkingdays.getWorkingDays(array));
+console.log('Is Working Day:', momentWorkingdays.isWorkingday('02-12-2019'));
+console.log('Add Working Days:', momentWorkingdays.addWorkingDays('06-12-2019', 2));
+console.log('Next Working Day:', momentWorkingdays.nextWorkingDay('06-12-2019'));
+console.log('Subtract Working Days:', momentWorkingdays.subtractWorkingDays('09-12-2019', 2));
+console.log('Previous Working Days:', momentWorkingdays.prevWorkingDay('09-12-2019'));
