@@ -34,7 +34,7 @@ const momentWorkingdays = new WorkingDays({
 
 ## API
 
-### .getWorkingDays(<array_of_dates>) => number
+### getWorkingDays(<array_of_dates>) => number
   * calculates count of working days, considering custom holidays and weekoffs.
   * supports distributed date ranges, i.e supports multiple date ranges to be considered for calculation
   * Consider today
@@ -99,7 +99,6 @@ Working Days: 3 day(s)
 - Hence giving support to distributed date ranges
 ```
 
-
 #### Example 3
 ```
 > Input
@@ -121,8 +120,8 @@ Working Days: 6 day(s)
 > Explanation
 - Calculates working days from 29-11 till today
 ```
-
-### `.isWorkingday(<date>) => boolean`
+___
+### isWorkingday(<date>) => boolean
   * returns if it is a working day, considering custom holidays and weekoffs
 
 #### Example 1
@@ -157,8 +156,8 @@ false
 > Returns
 true
 ```
-
-### `.addWorkingDays(<date>, noOfDays) => Date string`
+___
+### addWorkingDays(<date>, noOfDays) => Date string
   * returns date, after adding noOfDays of working days
 
 #### Example
@@ -173,8 +172,8 @@ true
 > Returns
 10-12-2019 // Tuesday
 ```
-
-### `.nextWorkingDay(<date>) => Date string`
+___
+### nextWorkingDay(<date>) => Date string
   * returns next working date
 
 #### Example
@@ -190,8 +189,8 @@ true
 09-12-2019 // Monday
 
 ```
-
-### `.subtractWorkingDays(<date>, noOfDays) => Date string`
+___
+### subtractWorkingDays(<date>, noOfDays) => Date string
   * returns date, after subtracting noOfDays of working days
 
 #### Example
@@ -206,8 +205,8 @@ true
 > Returns
 05-12-2019 // Thursday
 ```
-
-### `.prevWorkingDay(<date>) => Date string`
+___
+### prevWorkingDay(<date>) => Date string
   * returns previous working day
 
 #### Example
@@ -222,3 +221,4 @@ true
 > Returns
 06-12-2019  // Friday
 ```
+___
