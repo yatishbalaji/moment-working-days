@@ -6,7 +6,7 @@ class WorkingDays {
         includeToday = true,
         verbose = false,
         weekOffDays = [0, 6],
-        customHolidays = ['2019-12-02'],
+        customHolidays = [],
         dateFormat = 'YYYY-MM-DD'
     } = config;
 

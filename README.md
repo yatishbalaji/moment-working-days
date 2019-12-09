@@ -16,11 +16,11 @@
 const WorkingDays = require('moment-working-days')
 
 const momentWorkingdays = new WorkingDays({
-  includeToday: true,
-  verbose: true,
-  weekOffDays: [0, 6],
-  dateFormat: 'DD-MM-YYYY',
-  customHolidays: ['02-12-2019']
+  includeToday: true, // optional. Default true
+  verbose: true, // optional. Default false
+  weekOffDays: [0, 6], // optional. Default [0, 6]
+  dateFormat: 'DD-MM-YYYY', // optional. Default 'YYYY-MM-DD'
+  customHolidays: ['02-12-2019'] // optional
 })
 
 // includeToday: Include today in calculations, else today wll be excluded
@@ -45,9 +45,9 @@ const momentWorkingdays = new WorkingDays({
   * If you pass range of dates, it will calculate after making pair of even and odd indices
   * Supports future dates
 
-##### Example 1
+#### Example 1
 ```
-// Input
+> Input
 [
   "29-11-2019",
   "03-12-2019",
@@ -55,7 +55,7 @@ const momentWorkingdays = new WorkingDays({
   "12-12-2019"
 ]
 
-// Output
+> Output
 30-11-2019 is a Sat
 01-12-2019 is a Sun
 02-12-2019 is a Custom Holiday
@@ -63,7 +63,7 @@ const momentWorkingdays = new WorkingDays({
 08-12-2019 is a Sun
 Working Days: 6 day(s)
 
-// Returns
+> Returns
 6
 
 // Explanation
@@ -73,16 +73,16 @@ Working Days: 6 day(s)
 - Hence giving support to distributed date ranges
 ```
 
-##### Example 2
+#### Example 2
 ```
-// Input
+> Input
 [
   "29-11-2019",
   "03-12-2019",
   "07-12-2019"
 ]
 
-// Output
+> Output
 30-11-2019 is a Sat
 01-12-2019 is a Sun
 02-12-2019 is a Custom Holiday
@@ -90,24 +90,24 @@ Working Days: 6 day(s)
 08-12-2019 is a Sun
 Working Days: 3 day(s)
 
-// Returns
+> Returns
 3
 
-// Explanation
+> Explanation
 - If number of elements in input array is odd, then it will pair the last date with today
 - Eg: pair1: 29-11 and 03-12. pair2: 07-12 and 09-12 (Today's date)
 - Hence giving support to distributed date ranges
 ```
 
 
-##### Example 3
+#### Example 3
 ```
-// Input
+> Input
 [
   "29-11-2019",
 ]
 
-// Output
+> Output
 30-11-2019 is a Sat
 01-12-2019 is a Sun
 02-12-2019 is a Custom Holiday
@@ -115,42 +115,45 @@ Working Days: 3 day(s)
 08-12-2019 is a Sun
 Working Days: 6 day(s)
 
-// Returns
+> Returns
 6
+
+> Explanation
+- Calculates working days from 29-11 till today
 ```
 
 ### `.isWorkingday(<date>) => boolean`
   * returns if it is a working day, considering custom holidays and weekoffs
 
-##### Example 1
+#### Example 1
 ```
-// Input
+> Input
 "02-12-2019"
 
-// Output
+> Output
 02-12-2019 is a Custom Holiday
 
-// Returns
+> Returns
 false
 ```
 
-##### Example 2
+#### Example 2
 ```
-// Input
+> Input
 "01-12-2019"
 
-// Output
+> Output
 01-12-2019 is a Sun
 
-// Returns
+> Returns
 false
 ```
 
-##### Example 3
+#### Example 3
 ```
-// Input
+> Input
 "06-12-2019"
 
-// Returns
+> Returns
 true
 ```
