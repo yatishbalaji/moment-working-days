@@ -1,12 +1,10 @@
-# Distributed Working days calculator
+# Working days calculator - Distributed date ranges
+This is a Moment.js plugin that allows you to calculate working days considering sequence of date(s). You can customize the week off days, and also declare custom dates for holidays (eg: public holidays) to exclude them from being counted as working day(s)
 
-## Install
+## Installation
+----------------------
 
-`npm install moment-working-days`
-
-## Include
-
-`const WorkingDays = require('moment-working-days')`
+`npm install --save moment-working-days`
 
 ## Major Applications
   * TAT (Turn Around Time Calculator)
@@ -32,6 +30,9 @@ const momentWorkingdays = new WorkingDays({
 // customHolidays: Defines custom holidays for bussiness (eg: public holidays). Pass an array of dates in configured dateFormat
 ```
 
+## Documentation
++ Documentation is available at [moment-working-days Docs](https://yatishbalaji.github.io/moment-working-days/index.html).
+
 ## API
 
 ### getWorkingDays(array_of_dates) => number
@@ -46,14 +47,11 @@ const momentWorkingdays = new WorkingDays({
   * Supports future dates
 
 #### Example 1
-```
-> Input
-[
-  "29-11-2019",
-  "03-12-2019",
-  "07-12-2019",
-  "12-12-2019"
-]
+```javascript
+> momentWorkingdays.getWorkingDays([
+  "29-11-2019", "03-12-2019",
+  "07-12-2019", "12-12-2019"
+])
 
 > Output
 30-11-2019 is a Sat
@@ -74,13 +72,11 @@ Working Days: 6 day(s)
 ```
 
 #### Example 2
-```
-> Input
-[
-  "29-11-2019",
-  "03-12-2019",
+```javascript
+> momentWorkingdays.getWorkingDays([
+  "29-11-2019", "03-12-2019",
   "07-12-2019"
-]
+])
 
 > Output
 30-11-2019 is a Sat
@@ -100,11 +96,10 @@ Working Days: 3 day(s)
 ```
 
 #### Example 3
-```
-> Input
-[
+```javascript
+> momentWorkingdays.getWorkingDays([
   "29-11-2019",
-]
+])
 
 > Output
 30-11-2019 is a Sat
@@ -125,9 +120,8 @@ ___
   * returns if it is a working day, considering custom holidays and weekoffs
 
 #### Example 1
-```
-> Input
-"02-12-2019"
+```javascript
+> momentWorkingdays.isWorkingday("02-12-2019") // Monday
 
 > Output
 02-12-2019 is a Custom Holiday
@@ -137,9 +131,8 @@ false
 ```
 
 #### Example 2
-```
-> Input
-"01-12-2019"
+```javascript
+> momentWorkingdays.isWorkingday("01-12-2019") // Sunday
 
 > Output
 01-12-2019 is a Sun
@@ -149,9 +142,8 @@ false
 ```
 
 #### Example 3
-```
-> Input
-"06-12-2019"
+```javascript
+> momentWorkingdays.isWorkingday("06-12-2019") // Friday
 
 > Returns
 true
@@ -162,7 +154,7 @@ ___
 
 #### Example
 
-```
+```javascript
 > momentWorkingdays.addWorkingDays("06-12-2019", 2) // Friday
 
 > Output
@@ -178,7 +170,7 @@ ___
 
 #### Example
 
-```
+```javascript
 > momentWorkingdays.nextWorkingDay("06-12-2019") // Friday
 
 > Output
@@ -195,7 +187,7 @@ ___
 
 #### Example
 
-```
+```javascript
 > momentWorkingdays.subtractWorkingDays("09-12-2019", 2) // Monday
 
 > Output
@@ -211,7 +203,7 @@ ___
 
 #### Example
 
-```
+```javascript
 > momentWorkingdays.prevWorkingDay("09-12-2019") // Monday
 
 > Output
@@ -222,3 +214,11 @@ ___
 06-12-2019  // Friday
 ```
 ___
+
+## License
+
+moment-working-days is copyright (c) 2019-present Yatish Balaji <yatishmotamarri@yahoo.com> and
+the [contributors to moment-working-days](https://github.com/yatishbalaji/moment-working-days/graphs/contributors).
+
+moment-working-days is free software, licensed under the MIT License. See the
+`LICENSE` file for more details.
