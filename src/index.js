@@ -11,7 +11,7 @@
 const moment = require('moment');
 
 /**
- * This is a Moment.js plugin that allows you to calculate working days considering sequence * of date(s). You can customize the week off days, and also declare custom dates for
+ * This is a Moment.js plugin. You can customize the week off days, and also declare custom dates for
  * holidays (eg: public holidays) to exclude them from being counted as working day(s)
  */
 class WorkingDays {
@@ -49,7 +49,8 @@ class WorkingDays {
   }
 
     /**
-    * Takes date string.
+    * Util to calculate working days considering sequence
+    * of date(s) - similar to start-stop timer sequence
     * @example
     * momentWorkingdays.isWorkingday("02-12-2019") // Monday
     * // returns 6

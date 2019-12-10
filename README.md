@@ -38,10 +38,11 @@ const momentWorkingdays = new WorkingDays({
 ### getWorkingDays(array_of_dates) => number
   * calculates count of working days, considering custom holidays and weekoffs.
   * supports distributed date ranges, i.e supports multiple date ranges to be considered for calculation
-  * Consider today
-  * Weekoffs
-  * Public / custom holidays
+  * Configure if we should consider today in calculation
+  * Configure Weekoffs
+  * Configure Public / custom holidays
   * Support moment date formats
+  * Date pairing similiar to Start-Stop timer pairing
   * If you pass only one date in array, it will calculate till today
   * If you pass range of dates, it will calculate after making pair of even and odd indices
   * Supports future dates
@@ -91,7 +92,7 @@ Working Days: 3 day(s)
 
 > Explanation
 - If number of elements in input array is odd, then it will pair the last date with today
-- Eg: pair1: 29-11 and 03-12. pair2: 07-12 and 09-12 (Today's date)
+- Eg: pair1: 29-11 and 03-12. pair2: 07-12 and 09-12 (Todays date)
 - Hence giving support to distributed date ranges
 ```
 
