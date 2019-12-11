@@ -1,5 +1,5 @@
 # Working days calculator - Distributed date ranges
-This is a Moment.js plugin that allows you to calculate working days considering sequence of date(s). You can customize the week off days, and also declare custom dates for holidays (eg: public holidays) to exclude them from being counted as working day(s)
+This is a Moment.js plugin that allows you to calculate working days, considering sequence of date(s). You can customize the week off days, and also declare custom dates for holidays (eg: public holidays) to exclude them from being counted as working day(s)
 
 ## Installation
 ----------------------
@@ -7,8 +7,9 @@ This is a Moment.js plugin that allows you to calculate working days considering
 `npm install --save moment-working-days`
 
 ## Major Applications
+  * Working Days calculator between Date range(s)
   * TAT (Turn Around Time Calculator)
-  * Number of Fridays (or any other day) between Date range
+  * Number of Fridays (or any other day) between Date range(s)
 
 ## Configuration
 ```
@@ -135,15 +136,12 @@ Working Days: 1 day(s)
 
 > Returns
 1
-
-> Explanation
-- Calculates working days from 29-11 till today
 ```
 ___
 ### isWorkingday(date) => boolean
   * returns if it is a working day, considering custom holidays and weekoffs
 
-#### Example 1
+#### Example 1: Custom Holiday
 ```javascript
 > momentWorkingdays.isWorkingday("02-12-2019") // Monday
 
@@ -154,7 +152,7 @@ ___
 false
 ```
 
-#### Example 2
+#### Example 2: WeekOff
 ```javascript
 > momentWorkingdays.isWorkingday("01-12-2019") // Sunday
 
@@ -165,7 +163,7 @@ false
 false
 ```
 
-#### Example 3
+#### Example 3: Weekday
 ```javascript
 > momentWorkingdays.isWorkingday("06-12-2019") // Friday
 
@@ -173,7 +171,7 @@ false
 true
 
 ```
-#### Example 4
+#### Example 4: Custom working day
 ```javascript
 > momentWorkingdays.setCustomWorkingDays([
   '08-12-2019'
