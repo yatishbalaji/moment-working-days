@@ -154,7 +154,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line35">line 35</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line36">line 36</a>
     </li></ul></dd>
     
 
@@ -192,7 +192,8 @@
      verbose: true, // optional. Default false
      weekOffDays: [0, 6], // optional. Default [0, 6]
      dateFormat: 'DD-MM-YYYY', // optional. Default 'YYYY-MM-DD'
-     customHolidays: ['02-12-2019'] // optional
+     customHolidays: ['02-12-2019'], // optional
+     customWorkingDays: ['07-12-2019'] // optional
  })</code></pre>
 
 
@@ -359,7 +360,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line177">line 177</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line186">line 186</a>
     </li></ul></dd>
     
 
@@ -525,7 +526,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line113">line 113</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line122">line 122</a>
     </li></ul></dd>
     
 
@@ -705,7 +706,7 @@ of date(s) - similar to start-stop timer sequence
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line68">line 68</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -876,7 +877,7 @@ of date(s) - similar to start-stop timer sequence
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line209">line 209</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line218">line 218</a>
     </li></ul></dd>
     
 
@@ -1042,7 +1043,7 @@ of date(s) - similar to start-stop timer sequence
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line256">line 256</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line265">line 265</a>
     </li></ul></dd>
     
 
@@ -1098,6 +1099,334 @@ of date(s) - similar to start-stop timer sequence
     <pre class="prettyprint"><code>momentWorkingdays.prevWorkingDay("09-12-2019") // Monday
 // returns 06-12-2019
 // Friday</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setCustomWorkingDays"><span class="type-signature"></span>setCustomWorkingDays<span class="signature">(customWorkingDays)</span><span class="type-signature"> &rarr; {<a href="WorkingDays.html">WorkingDays</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets customWorkingDays.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>customWorkingDays</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line289">line 289</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    returns WorkingDays object
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="WorkingDays.html">WorkingDays</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>momentWorkingdays.customWorkingDays(['07-12-2019'])</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setWeekOffDays"><span class="type-signature"></span>setWeekOffDays<span class="signature">(weekOffDays)</span><span class="type-signature"> &rarr; {<a href="WorkingDays.html">WorkingDays</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Sets weekOffDays.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>weekOffDays</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line277">line 277</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    returns WorkingDays object
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="WorkingDays.html">WorkingDays</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>momentWorkingdays.setWeekOffDays([0, 1, 2, 3, 4, 6])</code></pre>
 
 
 
@@ -1243,7 +1572,7 @@ of date(s) - similar to start-stop timer sequence
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line225">line 225</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line234">line 234</a>
     </li></ul></dd>
     
 
@@ -1324,7 +1653,7 @@ of date(s) - similar to start-stop timer sequence
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Dec 10 2019 11:06:07 GMT+0530 (IST)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Wed Dec 11 2019 10:22:43 GMT+0530 (IST)
 </footer>
 
 <script> prettyPrint(); </script>

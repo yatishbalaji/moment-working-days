@@ -29,7 +29,8 @@ class WorkingDays {
         *      verbose: true, // optional. Default false
         *      weekOffDays: [0, 6], // optional. Default [0, 6]
         *      dateFormat: 'DD-MM-YYYY', // optional. Default 'YYYY-MM-DD'
-        *      customHolidays: ['02-12-2019'] // optional
+        *      customHolidays: ['02-12-2019'], // optional
+        *      customWorkingDays: ['07-12-2019'] // optional
         *  })
     */
   constructor(config = {}) {
@@ -38,6 +39,7 @@ class WorkingDays {
         verbose = false,
         weekOffDays = [0, 6],
         customHolidays = [],
+        customWorkingDays = [],
         dateFormat = 'YYYY-MM-DD'
     } = config;
 
@@ -45,6 +47,7 @@ class WorkingDays {
     this.verbose = verbose;
     this.weekOffDays = weekOffDays;
     this.customHolidays = customHolidays;
+    this.customWorkingDays = customWorkingDays;
     this.dateFormat = dateFormat;
   }
 
@@ -69,6 +72,12 @@ class WorkingDays {
     date = moment.isMoment(date) ? date : moment(date, this.dateFormat);
 
     if (
+        this.customWorkingDays.some(holiday => moment(holiday, this.dateFormat).isSame(date))
+    ) {
+        if (this.verbose)
+            console.log(date.format(this.dateFormat), 'is a Custom Working Day');
+        return true;
+    } else if (
         this.weekOffDays.includes(+date.format('d'))
     ) {
         if (this.verbose)
@@ -255,6 +264,31 @@ class WorkingDays {
     */
   prevWorkingDay(date) {
       return this.subtractWorkingDays(date, 1)
+  }
+  
+  /**
+    * Sets weekOffDays.
+    * @example
+    * momentWorkingdays.setWeekOffDays([0, 1, 2, 3, 4, 6])
+    * @memberof WorkingDays
+    * @param   {string[]} weekOffDays
+    * @returns {WorkingDays} returns WorkingDays object
+    */
+  setWeekOffDays(weekOffDays) {
+      this.weekOffDays = weekOffDays;
+      return this;
+  }  
+  /**
+    * Sets customWorkingDays.
+    * @example
+    * momentWorkingdays.customWorkingDays(['07-12-2019'])
+    * @memberof WorkingDays
+    * @param   {string[]} customWorkingDays
+    * @returns {WorkingDays} returns WorkingDays object
+    */
+  setCustomWorkingDays(customWorkingDays) {
+      this.customWorkingDays = customWorkingDays;
+      return this;
   }
 }
 

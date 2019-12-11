@@ -8,6 +8,7 @@ This is a Moment.js plugin that allows you to calculate working days considering
 
 ## Major Applications
   * TAT (Turn Around Time Calculator)
+  * Number of Fridays (or any other day) between Date range
 
 ## Configuration
 ```
@@ -18,7 +19,8 @@ const momentWorkingdays = new WorkingDays({
   verbose: true, // optional. Default false
   weekOffDays: [0, 6], // optional. Default [0, 6]
   dateFormat: 'DD-MM-YYYY', // optional. Default 'YYYY-MM-DD'
-  customHolidays: ['02-12-2019'] // optional
+  customHolidays: ['02-12-2019'], // optional
+  customWorkingDays: [] // optional: eg ['07-12-2019']
 })
 
 // includeToday: Include today in calculations, else today wll be excluded
@@ -41,6 +43,7 @@ const momentWorkingdays = new WorkingDays({
   * Configure if we should consider today in calculation
   * Configure Weekoffs
   * Configure Public / custom holidays
+  * Configure ustom working days
   * Support moment date formats
   * Date pairing similiar to Start-Stop timer pairing
   * If you pass only one date in array, it will calculate till today
@@ -96,7 +99,7 @@ Working Days: 3 day(s)
 - Hence giving support to distributed date ranges
 ```
 
-#### Example 3
+#### Example 3: Calculates working days from 29-11 till today
 ```javascript
 > momentWorkingdays.getWorkingDays([
   "29-11-2019",
@@ -112,6 +115,26 @@ Working Days: 6 day(s)
 
 > Returns
 6
+```
+
+#### Example 4: Count all Fridays between 2 dates
+```javascript
+> momentWorkingdays.setWeekOffDays([
+  0, 1, 2, 3, 4, 6
+]).getWorkingDays(["05-12-2019", "12-12-2019"]))
+
+> Output
+05-12-2019 is a Thu
+07-12-2019 is a Sat
+08-12-2019 is a Sun
+09-12-2019 is a Mon
+10-12-2019 is a Tue
+11-12-2019 is a Wed
+12-12-2019 is a Thu
+Working Days: 1 day(s)
+
+> Returns
+1
 
 > Explanation
 - Calculates working days from 29-11 till today
@@ -145,6 +168,16 @@ false
 #### Example 3
 ```javascript
 > momentWorkingdays.isWorkingday("06-12-2019") // Friday
+
+> Returns
+true
+
+```
+#### Example 4
+```javascript
+> momentWorkingdays.setCustomWorkingDays([
+  '08-12-2019'
+]).isWorkingday('08-12-2019')) // Sunday
 
 > Returns
 true
